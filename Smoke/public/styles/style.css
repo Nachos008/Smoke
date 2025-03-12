@@ -6,21 +6,35 @@ body{
     font-family: MS PGothic;
     src: url(https://fonts.google.com/specimen/Nanum+Gothic+Coding?query=Gothic);
 }
+.company{
+    display: flex;
+    margin-left: 1%;
+}
 .company-logo {
-    position: absolute;
     width: 60px; 
-    margin-right: 1800px; 
+}
+.company-name {
+    margin-top: 11px; 
+    font-weight: bold; 
+    font-style: italic;
+    color: white;
+    font-size: 25px;
 }
 .uplnehore{
     width: 100%;
     height: 50px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 .uplnehoretxt{
     margin-top: 15px;
     font-size: 14px;
     margin-right: 50px;
+}
+.discordLink{
+    display: flex;
+    gap: 10px;
+    margin-right: 1%;
 }
 .button{
     margin-top: 10px;
@@ -58,15 +72,6 @@ body{
     margin-top: 15px;
     font-size: 14px;
     color: white;
-}
-.company-name {
-    position: absolute;
-    margin-left: -1570px;
-    margin-top: 11px; 
-    font-weight: bold; 
-    font-style: italic;
-    color: white;
-    font-size: 25px;
 }
 
 nav{
