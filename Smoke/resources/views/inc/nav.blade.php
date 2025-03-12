@@ -22,6 +22,7 @@
 
    
         <div class="nav">
+            <a href={{route('home')}}>Home</a>
             <div class="dropdown">
             <a href="#">Trending</a>
             <div class="dropdown-content">
@@ -31,9 +32,9 @@
                 <a href="#">Lethal Company</a>
             </div>
             </div>
-            <a href="index2.html">Library</a>
-            <a href="">Store</a>
-            <a href="index3.html">Q&A</a>
-            <a href="">Profile</a>
+            <a href="{{ route('library') }}">Library</a>
+            <a href="{{ route('store') }}">Store</a>
+            <a href="{{ route('qa') }}">Q&A</a>
+            <a href="{{ route('profile') }}">Profile</a>
         </div>
       </nav>
