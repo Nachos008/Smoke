@@ -1,5 +1,6 @@
 @extends('layout.layout')
 @section('content')   
+<link rel="stylesheet" href="{{asset('styles/index.css')}}">
 
     <div class="precomy">
         <div class="precootazka">

@@ -3,7 +3,7 @@
   
         <div class="uplnehore">
             <div class="company">
-                <img src="D:\Škola\Visual studio code\Smoke\Smoke\Smoke\resources\img\logo.svg" alt="Company Logo" class="company-logo">
+                <img src="{{asset('image/logo.svg')}}" alt="Company Logo" class="company-logo">
                 <p class="company-name">Smoke</p>
             </div>
             <div class="uplnehoretxt"></div>

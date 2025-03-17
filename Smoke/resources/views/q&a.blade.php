@@ -1,6 +1,7 @@
 @extends('layout.layout')
 @section('content')  
-<link rel="stylesheet" href="{{asset('styles/style3.css')}}">
+
+<link rel="stylesheet" href="{{asset('styles/q&a.css')}}">
 
 <!DOCTYPE html>
 <html lang="en">
