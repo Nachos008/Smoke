@@ -4,5 +4,6 @@
     <title>Document</title>
     
     <link rel="stylesheet" href="{{asset('styles/nav.css')}}">
+    <link rel="stylesheet" href="{{asset('styles/footer.css')}}">
 
 </head>
