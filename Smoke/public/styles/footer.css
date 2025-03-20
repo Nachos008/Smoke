@@ -1,5 +1,5 @@
 footer{
-    background-image: url("{{asset('image/background.jpg')}}");
+    background-image: url('/image/background.jpg');
     background-size: cover;
     height: 100px;
     width: auto;

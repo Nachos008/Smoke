@@ -1,0 +1,8 @@
+body{
+    background-color: rgb(26, 25, 25);
+    margin: 0;
+  }
+  @font-face {
+      font-family: MS PGothic;
+      src: url(https://fonts.google.com/specimen/Nanum+Gothic+Coding?query=Gothic);
+  }
