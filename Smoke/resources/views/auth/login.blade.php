@@ -8,11 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit">Login</button>
-    </form>
+    <div class="formDiv">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Login</button>
+            <div class="textDiv">
+                <p>Dont have an account?</p>
+                <a href="{{route ('register')}}">Register</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

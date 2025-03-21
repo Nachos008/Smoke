@@ -10,14 +10,23 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/library', function () {
-    return view('library');
+    if (!Auth::check()) {
+        return redirect('login'); // Redirect guests to login page
+    }
+    return view('library'); // Show home page to logged-in users
 })->name('library'); 
 
 Route::get('/qa', function () {
-    return view('q&a');
+    if (!Auth::check()) {
+        return redirect('login'); // Redirect guests to login page
+    }
+    return view('q&a');; // Show home page to logged-in users
 })->name('qa');
 Route::get('/store', function () {
-    return view('store');
+    if (!Auth::check()) {
+        return redirect('login'); // Redirect guests to login page
+    }
+    return view('store');; // Show home page to logged-in users
 })->name('store');
 Route::get('/profile', function () {
     return view('profile');

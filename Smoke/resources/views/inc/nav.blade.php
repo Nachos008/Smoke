@@ -45,7 +45,7 @@
                     <a href="{{ route('profile') }}">Profile</a>
                     <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                         @csrf
-                        <button type="submit">Sign Out</button>
+                        <button type="submit" class="dropbtn" style="width: 100%; text-align: left;">Sign Out</button>
                     </form>
                 @else
                     <a href="{{ route('login') }}">Login</a>
@@ -54,3 +54,4 @@
             </div>
         </div>
     </div>
+</nav>
