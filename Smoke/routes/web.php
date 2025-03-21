@@ -4,6 +4,7 @@ use App\Http\Controllers\UserController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('index'); // Show home page to logged-in users
