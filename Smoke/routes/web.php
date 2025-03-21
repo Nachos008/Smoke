@@ -1,19 +1,13 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    if (!Auth::attempt()) {
-        return redirect('/login'); // Redirect guests to login page
-    }
     return view('index'); // Show home page to logged-in users
 })->name('home');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/library', function () {
     return view('library');
@@ -28,20 +22,14 @@ Route::get('/store', function () {
 Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
-Route::get('/register', function () {
-    return view('auth.register');
-});
-
-Route::post('/register', [AuthController::class, 'register']);
-
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/register', function () {
     return view('auth.register');
 })->name('register');
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [UserController::class, 'showRegistrationForm']);
+Route::post('/register', [UserController::class, 'register'])->name('register');
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/login', [UserController::class, 'showLoginForm']);
+Route::post('/login', [UserController::class, 'login'])->name('login');

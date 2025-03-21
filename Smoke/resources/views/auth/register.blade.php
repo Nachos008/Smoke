@@ -8,19 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="formDiv">
-        <form method="POST" action="/register"> 
-            @csrf
-            <input type="text" name="name" placeholder="Username" required class="field">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="password" name="password_confirm" placeholder="Confirm Password" required>
-            <button type="submit">Register</button>
-            <div class="textDiv">
-                <p>Already registered?</p>
-                <a href="{{route ('login')}}">Login</a>
-            </div>
-        </form>
-    </div>
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
+        <input type="text" name="name" placeholder="Name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Register</button>
+    </form>
 </body>
 </html>
