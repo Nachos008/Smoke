@@ -10,5 +10,8 @@ class GameController extends Controller
     {
         $games = \App\Models\Games::all();
         return view('store', compact('games'));
+
+        
     }
+
 }

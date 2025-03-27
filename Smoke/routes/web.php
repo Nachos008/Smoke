@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GameController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -23,20 +24,11 @@ Route::get('/qa', function () {
     }
     return view('q&a');; // Show home page to logged-in users
 })->name('qa');
-Route::get('/store', function () {
-    if (!Auth::check()) {
-        return redirect('login'); // Redirect guests to login page
-    }
-    return view('store');; // Show home page to logged-in users
-})->name('store');
+Route::get('/store', [GameController::class, 'index'])->name('store')->middleware('auth');
 Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
 
 Route::get('/register', [UserController::class, 'showRegistrationForm']);
 Route::post('/register', [UserController::class, 'register'])->name('register');
