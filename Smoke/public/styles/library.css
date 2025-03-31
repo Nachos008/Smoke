@@ -41,8 +41,11 @@ body {
 
 /* Sidebar Scrollbar */
 .sidebar::-webkit-scrollbar {
+    width: 8px;
 }
 .sidebar::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
 }
 
 /* Sidebar List */
