@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\PurchaseController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -11,12 +12,7 @@ Route::get('/', function () {
     return view('index'); // Show home page to logged-in users
 })->name('home');
 
-Route::get('/library', function () {
-    if (!Auth::check()) {
-        return redirect('login'); // Redirect guests to login page
-    }
-    return view('library'); // Show home page to logged-in users
-})->name('library'); 
+Route::get('/library', [PurchaseController::class, 'userLibrary'])->name('library')->middleware('auth');
 
 Route::get('/qa', function () {
     if (!Auth::check()) {
@@ -35,3 +31,6 @@ Route::post('/register', [UserController::class, 'register'])->name('register');
 
 Route::get('/login', [UserController::class, 'showLoginForm']);
 Route::post('/login', [UserController::class, 'login'])->name('login');
+
+Route::post('/buy-game/{id}', [PurchaseController::class, 'buyGame'])->name('buy.game')->middleware('auth');
+

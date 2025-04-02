@@ -43,7 +43,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/');
         }
-
+    
         return redirect('/login')->with('error', 'Invalid credentials. Please try again.');
     }
 
