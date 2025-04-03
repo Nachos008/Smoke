@@ -1,11 +1,17 @@
-body{
+body {
     background-color: rgb(26, 25, 25);
     margin: 0;
-  }
-  @font-face {
-      font-family: MS PGothic;
-      src: url(https://fonts.google.com/specimen/Nanum+Gothic+Coding?query=Gothic);
-  }
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'MS PGothic', 'Nanum Gothic Coding', sans-serif;
+    color: #e0e0e0;
+}
+
+@font-face {
+    font-family: 'MS PGothic';
+    src: url(https://fonts.google.com/specimen/Nanum+Gothic+Coding?query=Gothic);
+}
 
 #libraryContainer {
     max-width: 600px;
@@ -24,12 +30,15 @@ body{
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: black;
+    background-color: #1a1a1a;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 100;
 }
 
 #homeButton:hover {

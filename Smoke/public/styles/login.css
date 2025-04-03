@@ -1,40 +1,92 @@
-body{
-    background-color: rgb(26, 25, 25);
-    margin: 0;
-  }
-  @font-face {
-      font-family: MS PGothic;
-      src: url(https://fonts.google.com/specimen/Nanum+Gothic+Coding?query=Gothic);
-  }
+body {
+  background-color: rgb(26, 25, 25);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'MS PGothic', 'Nanum Gothic Coding', sans-serif;
+  color: #e0e0e0;
+}
+
+@font-face {
+  font-family: 'MS PGothic';
+  src: url(https://fonts.google.com/specimen/Nanum+Gothic+Coding?query=Gothic);
+}
 
   
-  .formDiv{
+  .formDiv {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 15%;
-  }
+    margin: 5% auto;
+    width: 90%;
+    max-width: 500px;
+}
 
-  form{
+form {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    background-color: rgb(36, 34, 34);
+    width: 100%;
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
     padding: 25px;
-    gap: 10px;
-    box-shadow: lightgray 0px 0px 25px 5px;
-  }
-  .textDiv{
+    gap: 15px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+input, button, textarea, select {
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #e0e0e0;
+    font-family: 'MS PGothic', 'Nanum Gothic Coding', sans-serif;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #70c0ff;
+    box-shadow: 0 0 5px rgba(112, 192, 255, 0.5);
+}
+
+button {
+    background-color: #3a6ea5;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #70c0ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.textDiv {
     display: flex;
     gap: 10px;
-  }
-  p{
+    align-items: center;
+}
+
+form p {
     margin: 0;
-    color: rgb(221, 221, 221);
-  }
-  a{
-    margin: 0;
-    color: rgb(219, 195, 195);
-  }
+    color: #e0e0e0;
+}
+
+form a {
+    color: #70c0ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+form a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
 
   

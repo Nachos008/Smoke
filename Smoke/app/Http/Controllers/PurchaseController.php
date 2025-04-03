@@ -57,7 +57,10 @@ class PurchaseController extends Controller
         
         $selectedGame = null;
         if ($request->has('game')) {
-            $selectedGame = $games->where('id', $request->game)->first();
+            $gameId = $request->game;
+            $selectedGame = $games->first(function($game) use ($gameId) {
+                return ($game->game_id ?? $game->id) == $gameId;
+            });
         }
         
         return view('library', compact('games', 'selectedGame'));

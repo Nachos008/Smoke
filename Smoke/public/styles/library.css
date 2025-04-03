@@ -4,105 +4,268 @@ body {
     display: flex;
     flex-direction: column; /* Stack header, content, and footer */
     min-height: 100vh; /* Ensure the body takes full viewport height */
+    font-family: 'MS PGothic', 'Nanum Gothic Coding', sans-serif;
+    color: #e0e0e0;
 }
-  @font-face {
-      font-family: MS PGothic;
-      src: url(https://fonts.google.com/specimen/Nanum+Gothic+Coding?query=Gothic);
-  }
 
-  #homeButton {
+@font-face {
+    font-family: 'MS PGothic';
+    src: url(https://fonts.google.com/specimen/Nanum+Gothic+Coding?query=Gothic);
+}
+
+#homeButton {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: black;
+    background-color: #1a1a1a;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 100;
 }
 
 #homeButton:hover {
     background-color: #2980b9;
 }
-
-.library{
+.library {
     display: flex;
+    height: calc(100vh - 100px); /* Adjust based on your header/footer size */
+    margin: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* Sidebar */
 .sidebar {
-    width: 150px;
+    width: 220px;
     display: flex;
     flex-direction: column;
-    overflow-y: auto; /* Enable independent scrolling */
-    max-height: calc(100vh - 100px); /* Adjust this if needed */
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    border-right: 1px solid #3a3a3a;
 }
 
 /* Sidebar Scrollbar */
 .sidebar::-webkit-scrollbar {
     width: 8px;
 }
+
 .sidebar::-webkit-scrollbar-thumb {
-    background: #555;
+    background: #444;
     border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #222;
+}
+
+/* Sidebar Title */
+.sidebar h2 {
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #222, #333);
+    color: #e0e0e0;
+    font-size: 22px;
+    text-align: center;
+    border-bottom: 1px solid #444;
 }
 
 /* Sidebar List */
 .sidebar ul {
-    background: linear-gradient(-45deg, #171717, #939393);
     list-style: none;
     padding: 0;
     margin: 0;
-    flex: 1; /* Allows the list to fill the sidebar */
-    overflow-y: auto; /* Enables scrolling */
+    flex: 1;
+    overflow-y: auto;
 }
 
 .sidebar ul li {
-    padding: 10px;
+    padding: 12px 15px;
     cursor: pointer;
+    border-bottom: 1px solid #333;
+    transition: all 0.2s ease;
+    position: relative;
 }
+
 .sidebar ul li:hover {
-    background-color: #2b2929;
-    color: white;
+    background-color: #333;
+    color: #ffffff;
+    padding-left: 20px;
 }
 
-h2{
-    margin: 0;
-    padding-left: 5%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    background: linear-gradient(-45deg, #171717, #939393);
+.sidebar ul li.active {
+    background-color: #3a6ea5;
+    color: white;
+    border-left: 4px solid #70c0ff;
 }
 
-.buy-button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 20px;
+.sidebar ul li.empty-library {
+    padding: 20px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    color: #888;
+    cursor: default;
+}
+
+/* Content Area */
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #222;
+    overflow-y: auto;
+}
+
+/* Game Details */
+.game-details {
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+.game-details h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #70c0ff;
+    font-size: 28px;
+    border-bottom: 2px solid #3a6ea5;
+    padding-bottom: 10px;
+}
+
+.game-info {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.game-image {
+    flex: 0 0 300px;
+}
+
+.game-image img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.game-image img:hover {
+    transform: scale(1.02);
+}
+
+.game-metadata {
+    flex: 1;
+    min-width: 300px;
+}
+
+.game-description {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #d0d0d0;
+}
+
+.game-specs p {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.game-specs p span {
+    font-weight: bold;
+    color: #70c0ff;
+    width: 100px;
+}
+
+.no-game-selected {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 18px;
+    text-align: center;
+    padding: 40px;
+}
+
+/* Game Preview (for hover effect) */
+.game-preview {
+    position: fixed;
+    width: 250px;
+    background: rgba(40, 40, 40, 0.95);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    pointer-events: none;
+    border: 1px solid #444;
+    color: white;
+}
+
+.game-preview h3 {
+    margin: 0 0 8px 0;
+    color: #70c0ff;
     font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+}
+
+.game-preview img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    margin-bottom: 8px;
 }
 
-.buy-button:hover {
-    background-color: #45a049;
+.game-preview p {
+    margin: 0;
+    font-size: 13px;
+    color: #ccc;
 }
 
+/* Alert */
 .alert {
-    padding: 15px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
     margin-bottom: 20px;
     border: 1px solid transparent;
     border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: opacity 0.5s ease;
 }
 
 .alert-success {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .library {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .sidebar {
+        width: 100%;
+        max-height: 200px;
+    }
+    
+    .game-info {
+        flex-direction: column;
+    }
 }
