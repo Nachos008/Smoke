@@ -12,7 +12,15 @@
             <!-- Check if game ID exists and pass it correctly -->
             <form action="{{ route('buy.game', ['id' => $game->id ?? $game->game_id]) }}" method="POST" style="display: inline;">
                 @csrf
-                <button type="submit" class="buy-button">Buy Game</button>
+                @php
+                    $isOwned = DB::table('user_games')->where('user_id', auth()->id())->where('game_id', $game->game_id ?? $game->id)->exists();
+                @endphp
+
+                @if (!$isOwned)
+                    <button type="submit" class="buy-button">Purchase</button>
+                @else
+                    <p><button type="submit" class="buy-button1" disabled>Owned</button></p>
+                @endif
             </form>
         </div>
     </article>
