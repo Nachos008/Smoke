@@ -65,6 +65,23 @@ class PurchaseController extends Controller
         
         return view('library', compact('games', 'selectedGame'));
     }
+    
+    public function sellGame($id){
+        $user = Auth::user();
+        
+        /*DB::table('user_games')->delete([
+            'user_id' => $user->id,
+            'game_id' => $id,
+            'purchased_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);*/
+        DB::table('user_games')
+        ->where('user_id', $user->id)
+        ->where('game_id', $id)
+        ->delete();
 
+        return redirect()->route('library')->with('success', 'Game sold successfully!');
+    }
     
 }
