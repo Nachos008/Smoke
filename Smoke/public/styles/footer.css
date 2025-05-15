@@ -1,9 +1,9 @@
 footer {
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    background-image: url('/image/background.jpg');
     background-size: cover;
     color: #e0e0e0;
     text-align: center;
-    padding: 30px 0;
+    padding: 19px 0;
     border-top: 1px solid #3a3a3a;
     margin-top: auto;
 }
@@ -21,7 +21,6 @@ footer {
     color: #e0e0e0;
     transition: transform 0.3s ease;
     border-radius: 50%;
-    background-color: rgba(30, 30, 30, 0.5);
 }
 
 .social-link1:hover, .social-link2:hover, .social-link3:hover, .social-link4:hover {

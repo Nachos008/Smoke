@@ -36,6 +36,10 @@
                                 <p><span>Publisher:</span> {{ $selectedGame->publisher }}</p>
                                 <p><span>Developer:</span> {{ $selectedGame->developer }}</p>
                                 <p><span>Release Date:</span> {{ $selectedGame->release_date }}</p>
+                                <form action="{{ route('sell.game', ['id' => $game->id ?? $game->game_id]) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="sell-button">Sell</button>
+                                </form>
                             </div>
                         </div>
                     </div>

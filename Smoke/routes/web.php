@@ -33,4 +33,5 @@ Route::get('/login', [UserController::class, 'showLoginForm']);
 Route::post('/login', [UserController::class, 'login'])->name('login');
 
 Route::post('/buy-game/{id}', [PurchaseController::class, 'buyGame'])->name('buy.game')->middleware('auth');
+Route::post('/sell-game/{id}', [PurchaseController::class, 'sellGame'])->name('sell.game')->middleware('auth');
 
