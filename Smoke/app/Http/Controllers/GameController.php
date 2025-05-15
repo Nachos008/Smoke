@@ -7,10 +7,19 @@ use Illuminate\Http\Request;
 
 class GameController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $games = \App\Models\Games::all();
-        return view('store', compact('games'));
+        $search = $request->query('search');
+        
+        if ($search) {
+            // Search for games that match the query by title only
+            $games = \App\Models\Games::where('title', 'like', '%' . $search . '%')->get();
+        } else {
+            // If no search query, get all games
+            $games = \App\Models\Games::all();
+        }
+        
+        return view('store', compact('games', 'search'));
     }
 
     public function getGamePreview($id)

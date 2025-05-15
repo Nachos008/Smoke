@@ -35,6 +35,7 @@ body {
     background: linear-gradient(135deg, #222, #333);
     padding: 5px 0;
     border-bottom: 1px solid #444;
+    align-items: center;
 }
 
 .company {
@@ -171,4 +172,49 @@ nav {
 .dropbtn:hover {
     background-color: #333;
     color: #70c0ff;
+}
+
+/* Search form styles for header */
+.header-search-form {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0 20px;
+}
+
+.header-search-input {
+    padding: 8px 35px 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #e0e0e0;
+    font-family: 'MS PGothic', 'Nanum Gothic Coding', sans-serif;
+    width: 200px;
+    transition: all 0.3s ease;
+}
+
+.header-search-input:focus {
+    outline: none;
+    border-color: #70c0ff;
+    box-shadow: 0 0 5px rgba(112, 192, 255, 0.5);
+    width: 220px;
+}
+
+.header-search-button {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.header-search-button:hover {
+    color: #70c0ff;
+}
+
+.header-search-button svg {
+    width: 16px;
+    height: 16px;
 }

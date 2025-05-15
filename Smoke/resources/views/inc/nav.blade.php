@@ -4,7 +4,18 @@
             <img src="{{asset('image/logo.svg')}}" alt="Company Logo" class="company-logo">
             <p class="company-name">Smoke</p>
         </div>
-        <div class="uplnehoretxt"></div>
+        
+        <!-- Game Search Form -->
+        <form action="{{ route('store') }}" method="GET" class="header-search-form">
+            <input type="text" name="search" placeholder="Search games..." class="header-search-input" value="{{ request('search') }}">
+            <button type="submit" class="header-search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </form>
+        
         <div class="discordLink">
             <p class="vedlabuttontxt">If you have any questions, come and ask them here</p>
             <a href="https://sk.wikipedia.org/wiki/Balada" class="link">
@@ -32,6 +43,7 @@
         <a href="{{ route('library') }}">Library</a>
         <a href="{{ route('store') }}">Store</a>
         <a href="{{ route('qa') }}">Q&A</a>
+        
         <div class="dropdown">
             <button class="dropbtn">
                 @if(Auth::check())
