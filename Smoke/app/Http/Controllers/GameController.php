@@ -34,4 +34,12 @@ class GameController extends Controller
             'developer' => $game->developer
         ]);
     }
+
+    public function show($id)
+    {
+    $selectedGame = Games::findOrFail($id);
+    $games = Games::all(); // To show the list on the sidebar too, if needed
+
+    return view('game', compact('selectedGame', 'games'));
+    }
 }

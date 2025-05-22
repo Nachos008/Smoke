@@ -7,7 +7,7 @@
 
     @if(count($games) > 0)
         @foreach($games as $game)
-        <article>
+        <article class="game-preview" data-id="{{ $game->id ?? $game->game_id }}">
             <img src="{{ $game->cover_image }}" alt="{{ $game->title }}" class="novehryimg">
             <div class="text-content1">
                 <h2>{{ $game->title }}</h2>
@@ -49,5 +49,21 @@
     function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    document.addEventListener("DOMContentLoaded", function () {
+    const games = document.querySelectorAll(".game-preview");
+
+    games.forEach(game => {
+        game.addEventListener("click", function (e) {
+            // Avoid interfering with button clicks inside the game card
+            if (e.target.tagName.toLowerCase() === 'button') return;
+
+            const gameId = this.dataset.id;
+            if (gameId) {
+                window.location.href = `/store/game/${gameId}`;
+            }
+        });
+    });
+});
+    
 </script>
 @endsection
