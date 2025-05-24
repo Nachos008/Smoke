@@ -60,6 +60,7 @@ body {
 }
 article {
     display: flex;
+    cursor: pointer;
 }
 
 .buy-button{
