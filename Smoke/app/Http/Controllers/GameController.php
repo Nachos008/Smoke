@@ -37,9 +37,16 @@ class GameController extends Controller
 
     public function show($id)
     {
-    $selectedGame = Games::findOrFail($id);
-    $games = Games::all(); // To show the list on the sidebar too, if needed
+        $selectedGame = Games::findOrFail($id);
+        $games = Games::all(); // To show the list on the sidebar too, if needed
 
-    return view('game', compact('selectedGame', 'games'));
+        // Ensure accessors are loaded
+        $selectedGame->tagsArray;
+        $selectedGame->criticReviews;
+        $selectedGame->gameImages;
+        $selectedGame->mainTrailerUrl;
+        $selectedGame->secondaryTrailerUrl;
+
+        return view('game', compact('selectedGame', 'games'));
     }
 }

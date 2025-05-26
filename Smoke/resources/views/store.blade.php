@@ -55,11 +55,15 @@
     games.forEach(game => {
         game.addEventListener("click", function (e) {
             // Avoid interfering with button clicks inside the game card
-            if (e.target.tagName.toLowerCase() === 'button') return;
+            if (e.target.tagName.toLowerCase() === 'button' || 
+                e.target.closest('button') || 
+                e.target.tagName.toLowerCase() === 'form') {
+                return;
+            }
 
             const gameId = this.dataset.id;
             if (gameId) {
-                window.location.href = `/store/game/${gameId}`;
+                window.location.href = "{{ url('store/game') }}/" + gameId;
             }
         });
     });
