@@ -58,7 +58,6 @@
 
 <script>
     function viewGame(gameId) {
-        // Redirect to the library page with the selected game
         window.location.href = `/library?game=${gameId}`;
     }
 </script>

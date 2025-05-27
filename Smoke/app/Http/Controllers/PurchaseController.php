@@ -16,15 +16,11 @@ class PurchaseController extends Controller
         $user = Auth::user();
     $game = Games::findOrFail($id);
     
-    // Check user model type and handle accordingly
     if (get_class($user) === 'App\Models\User') {
-        // Use User model approach
-        // Check if the game_user table has this relationship
         if (DB::table('user_games')->where('user_id', $user->id)->where('game_id', $id)->exists()) {
             return redirect()->back()->with('error', 'You already own this game!');
         }
         
-        // Create the relationship manually
         DB::table('user_games')->insert([
             'user_id' => $user->id,
             'game_id' => $id,
@@ -33,7 +29,6 @@ class PurchaseController extends Controller
             'updated_at' => now()
         ]);
     } else {
-        // Same approach for Users model
         if (DB::table('user_games')->where('user_id', $user->id)->where('game_id', $id)->exists()) {
             return redirect()->back()->with('error', 'You already own this game!');
         }

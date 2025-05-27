@@ -14,7 +14,6 @@
                 <p>{{ $game->description }}</p>
                 <p>Price: ${{ $game->price }}</p>
                 
-                <!-- Check if game ID exists and pass it correctly -->
                 <form action="{{ route('buy.game', ['id' => $game->id ?? $game->game_id]) }}" method="POST" style="display: inline;">
                     @csrf
                     @php
@@ -54,7 +53,6 @@
 
     games.forEach(game => {
         game.addEventListener("click", function (e) {
-            // Avoid interfering with button clicks inside the game card
             if (e.target.tagName.toLowerCase() === 'button' || 
                 e.target.closest('button') || 
                 e.target.tagName.toLowerCase() === 'form') {

@@ -12,10 +12,8 @@ class GameController extends Controller
         $search = $request->query('search');
         
         if ($search) {
-            // Search for games that match the query by title only
             $games = \App\Models\Games::where('title', 'like', '%' . $search . '%')->get();
         } else {
-            // If no search query, get all games
             $games = \App\Models\Games::all();
         }
         
@@ -38,9 +36,8 @@ class GameController extends Controller
     public function show($id)
     {
         $selectedGame = Games::findOrFail($id);
-        $games = Games::all(); // To show the list on the sidebar too, if needed
+        $games = Games::all(); 
 
-        // Ensure accessors are loaded
         $selectedGame->tagsArray;
         $selectedGame->criticReviews;
         $selectedGame->gameImages;

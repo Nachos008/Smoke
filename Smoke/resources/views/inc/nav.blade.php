@@ -5,7 +5,6 @@
             <p class="company-name">Smoke</p>
         </div>
         
-        <!-- Game Search Form -->
         <form action="{{ route('store') }}" method="GET" class="header-search-form">
             <input type="text" name="search" placeholder="Search games..." class="header-search-input" value="{{ request('search') }}">
             <button type="submit" class="header-search-button">

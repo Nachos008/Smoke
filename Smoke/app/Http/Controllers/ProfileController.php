@@ -10,7 +10,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $games = $user->games; // Get user's games from the relationship
+        $games = $user->games; 
         
         return view('profile', compact('user', 'games'));
     }

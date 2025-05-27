@@ -10,9 +10,8 @@ class Users extends Model
 
     public function games()
     {
-                // Correct syntax
         return $this->belongsToMany(Games::class, 'user_games', 'user_id', 'game_id')
-        ->withPivot('purchased_at')  // Use withPivot, not withTimestamp
+        ->withPivot('purchased_at') 
         ->withTimestamps();
     }
 }
