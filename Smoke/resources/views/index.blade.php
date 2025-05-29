@@ -222,21 +222,4 @@
     </div>
   </div>
 </div>
-
-
-<div class="tag-list">
-   <div class="inner">
-     <div class="tag"><span>#</span>CSS</div>
-     <div class="tag"><span>#</span>HTML</div>
-     <div class="tag"><span>#</span>C#</div>
-     <div class="tag"><span>#</span>C++</div>
-     <div class="tag"><span>#</span>JavaScript</div>
-     <div class="tag"><span>#</span>CSS</div>
-     <div class="tag"><span>#</span>HTML</div>
-     <div class="tag"><span>#</span>C#</div>
-     <div class="tag"><span>#</span>C++</div>
-     <div class="tag"><span>#</span>JavaScript</div>
-   </div>
-   <div class="fade"></div>
-</div>
 @endsection
